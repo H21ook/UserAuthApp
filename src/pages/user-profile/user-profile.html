@@ -1,18 +1,70 @@
-<!--
-  Generated template for the UserProfilePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>UserProfile</ion-title>
+    <ion-title>User Profile</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <div class="userProfile-form">
+    <ion-item>
+      <div class="image-frame">
+        <img class="user-image" *ngIf="avatarImage != null" [src]="avatarImage">
+        <img class="user-image" *ngIf="(avatarImage == null) && ((profile.sex == null) || (profile.sex == '1'))" src="../../assets/imgs/male.png">
+        <img class="user-image" *ngIf="(avatarImage == null) && (profile.sex == '0')" src="../../assets/imgs/female.png">
+        <br>
+        <button class="btn" bg-color="danger" style="background-color: #f53d3d; width:80%; margin:0 auto;" 
+          (click)="selectImage()">Select an image</button>
+      </div>
+      
+      
+      <input type="hidden">
+      
+    </ion-item>
 
+    <ion-item>
+      <ion-label color="primary" stacked>Firstname</ion-label>
+      <ion-input type="text" placeholder="Firstname" [(ngModel)]="profile.firstname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>Lastname</ion-label>
+      <ion-input type="text" placeholder="Lastname" [(ngModel)]="profile.lastname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>Register number</ion-label>
+      <ion-input type="text" placeholder="Register number" [(ngModel)]="profile.registerNumber"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>Email</ion-label>
+      <ion-input type="text" placeholder="Email" [(ngModel)]="profile.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>Age</ion-label>
+      <ion-input type="number" placeholder="Age" [(ngModel)]="profile.age"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>Sex</ion-label>
+      <ion-select [(ngModel)]="profile.sex" interface="popover">
+        <ion-option selected>Male</ion-option>
+        <ion-option>Female</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>Mobile phone</ion-label>
+      <ion-input type="number" placeholder="Mobile phone" [(ngModel)]="profile.phoneNumber"></ion-input>
+    </ion-item>
+    
+    <div style="text-align: right">
+      <button class="btn btn-primary" style="width: 95%; height: 35px;" (click)="saveProfileData()">Save</button>
+    </div>
+
+  </div>
 </ion-content>

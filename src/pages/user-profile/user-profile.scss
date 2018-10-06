@@ -1,3 +1,15 @@
 page-user-profile {
-
+    .userProfile-form{
+        padding: auto;
+        margin: auto;
+    }
+    .user-image {
+        width: 150px;
+        height: 150px;
+        margin:auto;
+    }
+    .image-frame {
+        width: 100%;
+        display: grid;
+    }
 }

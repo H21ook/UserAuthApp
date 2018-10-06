@@ -1,3 +1,19 @@
 page-login {
-
+    .login-form{
+        padding: auto;
+        margin: auto;
+    }
+    .googleBtn:hover {
+        background-color: rgba(219, 68, 55, 0.9) !important;
+    }
+    .fbBtn:hover {
+        background-color: rgba(66, 103, 178, 0.9) !important;
+    }
+    .regLink {
+        color: #488aff;
+        font-weight: bold;
+    }
+    .regLink:hover {
+        color: rgba(6, 38, 99, 0.7);
+    }
 }
