@@ -22,8 +22,8 @@ export class LoginPage {
   profileAFObser: AngularFireObject<Profile>;
   profileObser: Observable<Profile>;
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams, 
+    public navCtrl: NavController,
+    public navParams: NavParams,
     private authenticationProvider: AuthenticationProvider,
     private afAuth: AngularFireAuth,
     private profileProvider: ProfileProvider
@@ -34,27 +34,26 @@ export class LoginPage {
   }
 
   login() {
-    
+
     this.authenticationProvider.login(this.user)
     .then(() => {
       this.navCtrl.setRoot(HomePage);
-      
-          this.profileAFObser = this.profileProvider.getProfile(this.afAuth.auth.currentUser.uid);
-          this.profileObser = this.profileAFObser.valueChanges();
+      this.profileAFObser = this.profileProvider.getProfile(this.afAuth.auth.currentUser.uid);
+      this.profileObser = this.profileAFObser.valueChanges();
 
-          this.profileObser.subscribe((profile) => {
-            if(profile.state == null)
-              this.navCtrl.setRoot(UserProfilePage);
-            else 
-              this.navCtrl.setRoot(HomePage);
-          });
+      this.profileObser.subscribe((profile) => {
+        if (profile.state == "new")
+          this.navCtrl.setRoot(UserProfilePage);
+        else
+          this.navCtrl.setRoot(HomePage);
+      });
     },
-    error=>{
+    error => {
       console.log(error.message);
     });
   }
 
   goToRegister() {
-      this.navCtrl.push(RegisterPage);
+    this.navCtrl.push(RegisterPage);
   }
 }

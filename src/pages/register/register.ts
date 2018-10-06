@@ -30,6 +30,7 @@ export class RegisterPage {
     .then(() =>{
       this.profile.email = this.user.email;
       this.profile.sex = '1';
+      this.profile.state = 'new';
       this.profileProvider.setProfile(this.profile);
       console.log("Amjilttai");
     },

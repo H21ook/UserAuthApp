@@ -12,8 +12,7 @@
     <ion-item>
       <div class="image-frame">
         <img class="user-image" *ngIf="avatarImage != null" [src]="avatarImage">
-        <img class="user-image" *ngIf="(avatarImage == null) && ((profile.sex == null) || (profile.sex == '1'))" src="../../assets/imgs/male.png">
-        <img class="user-image" *ngIf="(avatarImage == null) && (profile.sex == '0')" src="../../assets/imgs/female.png">
+        <img class="user-image" *ngIf="(avatarImage == null)" (click)="takePhoto()" src="../../assets/imgs/add_image.png">
         <br>
         <button class="btn" bg-color="danger" style="background-color: #f53d3d; width:80%; margin:0 auto;" 
           (click)="selectImage()">Select an image</button>

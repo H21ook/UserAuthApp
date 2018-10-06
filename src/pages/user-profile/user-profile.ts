@@ -30,9 +30,9 @@ export class UserProfilePage {
     this.profileAFObser = this.profileProvider.getProfile(this.afAuth.auth.currentUser.uid);
     this.profileObser = this.profileAFObser.valueChanges();
     this.profileObser.subscribe((profile) => {
+
       this.profile = profile;
-      this.profile.image="asdfgfsdgsdf";
-      this.profile.sex = "1";
+
       if(this.profile.image != null)
          this.loadImage(this.profile.image)
     });
@@ -53,6 +53,10 @@ export class UserProfilePage {
     // console.log(this.photoProvider.selectImage());
   }
 
+  takePhoto()
+  {
+    
+  }
   saveProfileData() {
     this.navCtrl.setRoot(HomePage);
   }
