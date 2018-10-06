@@ -4,6 +4,9 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+//Native
+import { Camera } from '@ionic-native/camera';
+//Native
 import { MyApp } from './app.component';
 //Firebase 
 import { FIREBASE_CONFIG } from '../app/firebase.config';
@@ -18,7 +21,6 @@ import { RegisterPageModule } from '../pages/register/register.module';
 import { UserProfilePageModule } from '../pages/user-profile/user-profile.module';
 import { AuthenticationProvider } from '../providers/authentication/authentication';
 import { ProfileProvider } from '../providers/profile/profile';
-import { PhotoProvider } from '../providers/photo/photo';
 //Pages
 
 @NgModule({
@@ -43,10 +45,10 @@ import { PhotoProvider } from '../providers/photo/photo';
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthenticationProvider,
-    ProfileProvider,
-    PhotoProvider
+    ProfileProvider
   ]
 })
 export class AppModule {}
