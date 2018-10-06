@@ -12,35 +12,31 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 //Firebase
 //Pages
-import { HomePage } from '../pages/home/home';
-import { LoginPage } from '../pages/login/login';
-import { RegisterPage } from '../pages/register/register';
-import { UserProfilePage } from '../pages/user-profile/user-profile';
+import { HomePageModule } from '../pages/home/home.module';
+import { LoginPageModule } from '../pages/login/login.module';
+import { RegisterPageModule } from '../pages/register/register.module';
+import { UserProfilePageModule } from '../pages/user-profile/user-profile.module';
 import { AuthenticationProvider } from '../providers/authentication/authentication';
 //Pages
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    LoginPage,
-    RegisterPage,
-    UserProfilePage
+    MyApp
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HomePageModule,
+    LoginPageModule,
+    RegisterPageModule,
+    UserProfilePageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage,
-    LoginPage,
-    RegisterPage,
-    UserProfilePage
+    MyApp
   ],
   providers: [
     StatusBar,
