@@ -3,8 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { User } from '../../models/user';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
-// import { ProfileProvider } from '../../providers/profile/profile';
-// import { Profile } from '../../models/profile';
+import { ProfileProvider } from '../../providers/profile/profile';
+import { Profile } from '../../models/profile';
 
 @IonicPage()
 @Component({
@@ -13,12 +13,12 @@ import { AuthenticationProvider } from '../../providers/authentication/authentic
 })
 export class RegisterPage {
   user = {} as User;
-  // profile = {} as Profile;
+  profile = {} as Profile;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private authenticationProvider: AuthenticationProvider,
-    // private profileProvider: ProfileProvider
+    private profileProvider: ProfileProvider
   ) { }
 
   ionViewDidLoad() {
@@ -28,8 +28,9 @@ export class RegisterPage {
   register() {
     this.authenticationProvider.register(this.user)
     .then(() =>{
-      // this.profile.email = this.user.email;
-      // this.profileProvider.setProfile(this.profile);
+      this.profile.email = this.user.email;
+      this.profile.sex = '1';
+      this.profileProvider.setProfile(this.profile);
       console.log("Amjilttai");
     },
     error=>{

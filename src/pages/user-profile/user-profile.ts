@@ -5,7 +5,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { HomePage } from '../home/home';
 import { AngularFireObject } from 'angularfire2/database';
 import { Observable } from 'rxjs';
-// import { ProfileProvider } from '../../providers/profile/profile';
+import { ProfileProvider } from '../../providers/profile/profile';
 // import { PhotoProvider } from '../../providers/photo/photo';
 import * as firebase from 'firebase';
 
@@ -24,18 +24,18 @@ export class UserProfilePage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private afAuth: AngularFireAuth,
-    // private profileProvider: ProfileProvider,
+    private profileProvider: ProfileProvider,
     // private photoProvider: PhotoProvider
   ) {
-    // this.profileAFObser = this.profileProvider.getProfile(this.afAuth.auth.currentUser.uid);
-    // this.profileObser = this.profileAFObser.valueChanges();
-    // this.profileObser.subscribe((profile) => {
-    //   this.profile = profile;
-    //   this.profile.image="asdfgfsdgsdf";
-    //   this.profile.sex = "1";
-    //   if(this.profile.image != null)
-    //      this.loadImage(this.profile.image)
-    // });
+    this.profileAFObser = this.profileProvider.getProfile(this.afAuth.auth.currentUser.uid);
+    this.profileObser = this.profileAFObser.valueChanges();
+    this.profileObser.subscribe((profile) => {
+      this.profile = profile;
+      this.profile.image="asdfgfsdgsdf";
+      this.profile.sex = "1";
+      if(this.profile.image != null)
+         this.loadImage(this.profile.image)
+    });
   }
 
   ionViewDidLoad() {
