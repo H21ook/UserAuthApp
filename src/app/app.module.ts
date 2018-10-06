@@ -16,6 +16,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { UserProfilePage } from '../pages/user-profile/user-profile';
+import { AuthenticationProvider } from '../providers/authentication/authentication';
 //Pages
 
 @NgModule({
@@ -44,7 +45,8 @@ import { UserProfilePage } from '../pages/user-profile/user-profile';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthenticationProvider
   ]
 })
 export class AppModule {}
