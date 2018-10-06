@@ -17,6 +17,7 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { RegisterPageModule } from '../pages/register/register.module';
 import { UserProfilePageModule } from '../pages/user-profile/user-profile.module';
 import { AuthenticationProvider } from '../providers/authentication/authentication';
+import { ProfileProvider } from '../providers/profile/profile';
 //Pages
 
 @NgModule({
@@ -42,7 +43,8 @@ import { AuthenticationProvider } from '../providers/authentication/authenticati
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthenticationProvider
+    AuthenticationProvider,
+    ProfileProvider
   ]
 })
 export class AppModule {}
