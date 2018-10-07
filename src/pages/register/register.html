@@ -8,9 +8,31 @@
 
 
 <ion-content padding>
-  <div class="register-form">
-    <ion-input type="text" placeholder="Email" [(ngModel)]="user.email" class="inputText" style="margin-top:50%"></ion-input>
-    <ion-input type="password" placeholder="Password" [(ngModel)]="user.password" class="inputText"></ion-input>
-    <button class="btn btn-primary" style="width: 100%;" (click)="register()">Register</button>
-  </div>
+
+  <form [formGroup]="registerForm" novalidate>
+    <div class="register-form">
+      <div class="form-group">
+        <ion-input name="email" type="text" formControlName="email" placeholder="Email" (change)="changeInputText($event)"
+          [(ngModel)]="user.email" class="inputText" style="margin-top:50%;" required></ion-input>
+
+        <div *ngIf="(!formFields.email.valid && formFields.email.touched && !emailErrorHide)" class="invalid-feedback">
+          <div class="error error-msg">
+            <span>Email is required</span>
+            <i class="ico-times" style="float: right; padding-right: 5px; margin-top: -2px;" (click)="closeErrorMsg($event)"></i></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <ion-input name="password" type="password" formControlName="password" placeholder="Password" (change)="changeInputText($event)"
+          [(ngModel)]="user.password" class="inputText"></ion-input>
+
+        <div *ngIf="(!formFields.password.valid && formFields.password.touched && !passErrorHide)" class="invalid-feedback">
+          <div class="error error-msg">
+            <span>Password must be at least 6 characters long</span>
+            <i class="ico-times" style="float: right; padding-right: 5px; margin-top: -2px;" (click)="closeErrorMsg($event)"></i></div>
+        </div>
+      </div>
+      <button class="btn btn-primary" style="width: 100%;" (click)="register()">Register</button>
+    </div>
+  </form>
 </ion-content>

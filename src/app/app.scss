@@ -20,3 +20,21 @@
 .btn-primary:hover {
     background-color: rgba(75,138,255,0.9);
 }
+
+.error{
+    background: #FDE2E2;
+    color: #EA5353;
+}
+.error-msg {
+    padding: 5px;
+    border: 1px solid #F15B5B;
+    border-radius: 2px;
+    font-size: 12px;
+}
+
+.ico-times:before{ content: "\2718"; }
+.ico-times:hover {
+    padding-left: 2px;
+    background: rgba(31, 30, 30, 0.3);
+    color: rgb(216, 59, 59);
+}
