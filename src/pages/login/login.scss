@@ -1,7 +1,7 @@
 page-login {
     .login-form{
-        padding: auto;
-        margin: auto;
+        width: 100%;
+        text-align: center;
     }
     .googleBtn:hover {
         background-color: rgba(219, 68, 55, 0.9) !important;
@@ -15,5 +15,9 @@ page-login {
     }
     .regLink:hover {
         color: rgba(6, 38, 99, 0.7);
+    }
+    .tdlogo {
+        width:45%;
+        margin:25px auto;
     }
 }

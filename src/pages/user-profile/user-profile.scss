@@ -1,7 +1,6 @@
 page-user-profile {
     .userProfile-form{
-        padding: auto;
-        margin: auto;
+        width: 100%;
     }
     .user-image {
         width: 150px;
@@ -11,5 +10,9 @@ page-user-profile {
     .image-frame {
         width: 100%;
         display: grid;
+    }
+    .error-frame {
+        margin:10px 0 0 15px; 
+        color: #f53d3d;
     }
 }

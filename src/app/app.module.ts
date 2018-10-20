@@ -21,6 +21,7 @@ import { RegisterPageModule } from '../pages/register/register.module';
 import { UserProfilePageModule } from '../pages/user-profile/user-profile.module';
 import { AuthenticationProvider } from '../providers/authentication/authentication';
 import { ProfileProvider } from '../providers/profile/profile';
+import { ValidatorProvider } from '../providers/validator/validator';
 //Pages
 
 @NgModule({
@@ -48,7 +49,8 @@ import { ProfileProvider } from '../providers/profile/profile';
     Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthenticationProvider,
-    ProfileProvider
+    ProfileProvider,
+    ValidatorProvider
   ]
 })
 export class AppModule {}

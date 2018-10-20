@@ -14,41 +14,57 @@
         <img class="user-image" *ngIf="avatarImage != null" [src]="avatarImage">
         <img class="user-image" *ngIf="(avatarImage == null)" (click)="selectPhoto()" src="../../assets/imgs/add_image.png">
         <br>
-        <button class="btn" bg-color="danger" style="background-color: #f53d3d; width:80%; margin:0 auto;" 
-          (click)="takePhoto()">Select an image</button>
+        <button class="btn" bg-color="danger" style="background-color: #f53d3d; width:80%; margin:0 auto;" (click)="takePhoto()">Take
+          a photo</button>
       </div>
     </ion-item>
 
     <ion-item>
-      <ion-label color="primary" stacked>Firstname</ion-label>
-      <ion-input type="text" placeholder="Firstname" [(ngModel)]="profile.firstname"></ion-input>
+      <ion-label color="primary" stacked>Firstname<span style="color: #f53d3d"> *</span></ion-label>
+      <ion-input type="text" placeholder="Firstname" (change)="validFn()" [(ngModel)]="profile.firstName"></ion-input>
     </ion-item>
+    <div class="error-frame" *ngIf="formErrors.fnameError">
+      <div class="error error-msg">
+        <span>{{formErrors.fnameError}}</span></div>
+    </div>
 
     <ion-item>
-      <ion-label color="primary" stacked>Lastname</ion-label>
-      <ion-input type="text" placeholder="Lastname" [(ngModel)]="profile.lastname"></ion-input>
+      <ion-label color="primary" stacked>Lastname<span style="color: #f53d3d"> *</span></ion-label>
+      <ion-input type="text" placeholder="Lastname" (change)="validLn()" [(ngModel)]="profile.lastName"></ion-input>
     </ion-item>
+    <div class="error-frame" *ngIf="formErrors.lnameError">
+      <div class="error error-msg">
+        <span>{{formErrors.lnameError}}</span></div>
+    </div>
 
     <ion-item>
-      <ion-label color="primary" stacked>Register number</ion-label>
-      <ion-input type="text" placeholder="Register number" [(ngModel)]="profile.registerNumber"></ion-input>
+      <ion-label color="primary" stacked>Register number<span style="color: #f53d3d"> *</span></ion-label>
+      <ion-input type="text" placeholder="Register number" (change)="validRegN()" [(ngModel)]="profile.registerNumber"></ion-input>
     </ion-item>
+    <div class="error-frame" *ngIf="formErrors.registerError">
+      <div class="error error-msg">
+        <span>{{formErrors.registerError}}</span></div>
+    </div>
 
     <ion-item>
       <ion-label color="primary" stacked>Email</ion-label>
-      <ion-input type="text" placeholder="Email" [(ngModel)]="profile.email"></ion-input>
+      <ion-input type="text" placeholder="Email" disabled="true" [(ngModel)]="profile.email"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label color="primary" stacked>Age</ion-label>
-      <ion-input type="number" placeholder="Age" [(ngModel)]="profile.age"></ion-input>
+      <ion-label color="primary" stacked>Age<span style="color: #f53d3d"> *</span></ion-label>
+      <ion-input type="number" placeholder="Age" (change)="validAge()" [(ngModel)]="profile.age"></ion-input>
     </ion-item>
+    <div class="error-frame" *ngIf="formErrors.ageError">
+      <div class="error error-msg">
+        <span>{{formErrors.ageError}}</span></div>
+    </div>
 
     <ion-item>
       <ion-label color="primary" stacked>Sex</ion-label>
       <ion-select [(ngModel)]="profile.sex" interface="popover">
-        <ion-option selected>Male</ion-option>
-        <ion-option>Female</ion-option>
+        <ion-option value="1">Male</ion-option>
+        <ion-option value="0">Female</ion-option>
       </ion-select>
     </ion-item>
 
@@ -56,7 +72,7 @@
       <ion-label color="primary" stacked>Mobile phone</ion-label>
       <ion-input type="number" placeholder="Mobile phone" [(ngModel)]="profile.phoneNumber"></ion-input>
     </ion-item>
-    
+
     <div style="text-align: right">
       <button class="btn btn-primary" style="width: 95%; height: 35px;" (click)="saveProfileData()">Save</button>
     </div>
