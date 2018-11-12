@@ -36,6 +36,7 @@ export class LoginPage {
 
   login() {
     this.loginError = '';
+    // this.user={ email: "tbeta40@gmail.com", password:"12345678"};
     this.authenticationProvider.login(this.user)
       .then(() => {
         this.profileAFObser = this.profileProvider.getProfile(this.afAuth.auth.currentUser.uid);

@@ -5,6 +5,10 @@
     font-weight: bold;
     font-size: 15px
 }
+.toolbar-title {
+    color: color($colors, light);
+    font-size: 18px;
+}
 .inputText {
     background: rgba(0,0,0,0.1);
     padding: 0 10px;
@@ -15,10 +19,10 @@
     border-radius: 5px;
 }
 .btn-primary {
-    background-color: #488aff;
+    background-color: color($colors, primary);
 }
 .btn-primary:hover {
-    background-color: rgba(75,138,255,0.9);
+    background-color: rgba(0, 88, 170,0.9);
 }
 
 .error{
@@ -37,4 +41,43 @@
     padding-left: 2px;
     background: rgba(31, 30, 30, 0.3);
     color: rgb(216, 59, 59);
+}
+
+@font-face {
+    font-family: MonSkazka;
+    src: url(../assets/fonts/MonSkazka.ttf) format("truetype");
+    font-weight: 200
+}
+@font-face {
+    font-family: MonGeorgia;
+    src: url(../assets/fonts/MonGeorgia.ttf) format("truetype");
+    font-weight: 200
+}
+@font-face {
+    font-family: MonLazurski;
+    src: url(../assets/fonts/MonLazurski.ttf) format("truetype");
+    font-weight: 200
+}
+@font-face {
+    font-family: MonInfact;
+    src: url(../assets/fonts/MonImpact.ttf) format("truetype");
+    font-weight: 200
+}
+@font-face {
+    font-family: GymnasiaCompressedMon;
+    src: url(../assets/fonts/GymnasiaCompressedMon.ttf) format("truetype");
+    font-weight: 200
+}
+@font-face {
+    font-family: GLECB;
+    src: url(../assets/fonts/GLECB.TTF) format("truetype");
+    font-weight: 200
+}
+@font-face {
+    font-family: MonFnt19;
+    src: url(../assets/fonts/MonFnt19-Bold.ttf) format("truetype");
+    font-weight: 200
+}
+body {
+    font-family: MonFnt19;
 }
